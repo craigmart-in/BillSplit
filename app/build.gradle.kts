@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "in.craigmart.billsplit"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "in.craigmart.billsplit"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
