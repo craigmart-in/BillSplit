@@ -1,16 +1,20 @@
 package `in`.craigmart.billsplit.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import `in`.craigmart.billsplit.ui.billsplit.BillSplitRoute
-import `in`.craigmart.billsplit.ui.billsplit.billSplitRoute
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.ui.NavDisplay
+import `in`.craigmart.billsplit.ui.billsplit.billList
+
 
 @Composable
-fun BillSplitNavHost(
-    navController: NavHostController,
+fun BillSplitNavDisplay(
+    backstack: MutableList<Any>,
 ) {
-    NavHost(navController, startDestination = BillSplitRoute) {
-        billSplitRoute()
-    }
+    NavDisplay(
+        backStack = backstack,
+        onBack = { backstack.removeLastOrNull() },
+        entryProvider = entryProvider {
+            billList()
+        }
+    )
 }

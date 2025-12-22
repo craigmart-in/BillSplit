@@ -1,15 +1,17 @@
 package `in`.craigmart.billsplit
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.compose.rememberNavController
-import `in`.craigmart.billsplit.navigation.BillSplitNavHost
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import `in`.craigmart.billsplit.navigation.BillSplitNavDisplay
+import `in`.craigmart.billsplit.ui.billsplit.BillList
 import `in`.craigmart.billsplit.ui.theme.BillSplitTheme
 
 @Composable
 fun BillSplitApp() {
     BillSplitTheme {
-        val navController = rememberNavController()
+        val backStack = remember { mutableStateListOf<Any>(BillList) }
 
-        BillSplitNavHost(navController)
+        BillSplitNavDisplay(backStack)
     }
 }
