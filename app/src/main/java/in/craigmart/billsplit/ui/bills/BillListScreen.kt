@@ -1,6 +1,5 @@
-package `in`.craigmart.billsplit.ui.billsplit
+package `in`.craigmart.billsplit.ui.bills
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,20 +12,22 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import `in`.craigmart.billsplit.R
 import `in`.craigmart.billsplit.ui.theme.BillSplitTheme
 
 @Composable
-fun BillSplitScreen(viewModel: BillSplitViewModel = viewModel()) {
+fun BillSplitScreen(
+    onPeopleClick: () -> Unit,
+    onAddBillClick: () -> Unit,
+    viewModel: BillSplitViewModel = viewModel(),
+) {
     BillSplitContent(
-        onPeopleClick = { },
-        onAddBillClick = { }
+        onPeopleClick = onPeopleClick,
+        onAddBillClick = onAddBillClick
     )
 }
 
@@ -64,22 +65,9 @@ private fun BillSplitContent(
                     label = { Text("People") }
                 )
             }
-        }
-    ) { contentPadding ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(contentPadding)
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-
-            }
-
+        },
+        floatingActionButton = {
             SmallFloatingActionButton(
-                modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
                 onClick = onAddBillClick
             ) {
                 Icon(
@@ -88,6 +76,14 @@ private fun BillSplitContent(
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }
+        }
+    ) { contentPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(contentPadding)
+        ) {
+            Text("Bill Split")
         }
     }
 }

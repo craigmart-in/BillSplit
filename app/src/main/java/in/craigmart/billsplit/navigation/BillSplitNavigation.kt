@@ -3,7 +3,7 @@ package `in`.craigmart.billsplit.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
-import `in`.craigmart.billsplit.ui.billsplit.billList
+import `in`.craigmart.billsplit.ui.bills.billFeature
 
 
 @Composable
@@ -14,7 +14,7 @@ fun BillSplitNavDisplay(
         backStack = backstack,
         onBack = { backstack.removeLastOrNull() },
         entryProvider = entryProvider {
-            billList()
+            billFeature(backstack)
         }
     )
 }

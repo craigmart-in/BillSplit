@@ -1,4 +1,4 @@
-package `in`.craigmart.billsplit.ui.billsplit
+package `in`.craigmart.billsplit.ui.bills
 
 import androidx.lifecycle.ViewModel
 import `in`.craigmart.billsplit.data.Bill
